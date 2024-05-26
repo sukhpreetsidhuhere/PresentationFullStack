@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random HTTP Cat Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #cat-image {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random HTTP Cat Image</h1>
+    <button id="fetch-button">Get Random Cat Image</button>
+    <br>
+    <img id="cat-image" src="" alt="HTTP Cat Image">
+    
+    <script>
+        const statusCodes = [100, 101, 200, 201, 202, 204, 301, 302, 303, 304, 400, 401, 403, 404, 405, 500, 502, 503];
+
+        document.getElementById('fetch-button').addEventListener('click', () => {
+            const randomStatusCode = statusCodes[Math.floor(Math.random() * statusCodes.length)];
+            const imgElement = document.getElementById('cat-image');
+            imgElement.src = `https://http.cat/${randomStatusCode}`;
+        });
+    </script>
+</body>
+</html>
